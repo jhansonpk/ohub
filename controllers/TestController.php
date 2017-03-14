@@ -42,9 +42,9 @@ class TestController extends Controller
             preg_match_all('/([\d]+)/', $address, $match);
             $number = implode(".", $match[0]);
 
-            if($number != '')
+            if($number == '')
             {
-                return 0;
+                print 0;
             }
             else
             {
@@ -53,7 +53,7 @@ class TestController extends Controller
                 $this->setCookieSession($email, $address, $number, $token, $score);
                 $this->sendEmail($email, $token);
 
-                return 1;
+                print 1;
             }
         }
         else

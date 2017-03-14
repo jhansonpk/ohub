@@ -73,6 +73,7 @@
                     data: $(e.target).serialize(),
                     success: function (response)
                     {
+                        console.log(response);
                         if(response == 0)
                         {
                             $("#address").parent(this).addClass('has-error has-feedback');

@@ -11,6 +11,7 @@ class Application
     const ROUTE = [
         'test' => [
             'index',
+            'send'
         ]
     ];
 

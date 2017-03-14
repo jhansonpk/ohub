@@ -13,7 +13,7 @@ class Application
             'index',
         ]
     ];
-    
+
     // controle da action
     private function route()
     {

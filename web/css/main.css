@@ -1,0 +1,14 @@
+h1 {color: #fff}
+section { background: rgba(0, 0, 0, 0.30); position: relative;  overflow: hidden;}
+form {padding: 50px 0}
+header {padding: 20px 0;}
+nav.navbar-default {margin: 0; background-color: #fff;}
+nav .navbar-brand {padding: 0; padding-left: 30px; padding-top: 6px;}
+figure {position: absolute; top: 0; z-index: -1}
+
+@media (max-width: 768px)
+{
+    h1 {font-size: 20px}
+    form {padding: 20px 0}
+}
+

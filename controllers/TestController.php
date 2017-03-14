@@ -5,12 +5,12 @@ namespace mvc\controllers;
  * Class BookController
  * @package mvc\controllers
  */
-class TestController
+class TestController extends Controller
 {
 
     public function actionIndex()
     {
-        include $this->viewFile;
+        return $this->render('/test/index', []);
     }
 
 }

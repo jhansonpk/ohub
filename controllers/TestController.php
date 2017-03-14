@@ -42,7 +42,7 @@ class TestController extends Controller
             preg_match_all('/([\d]+)/', $address, $match);
             $number = implode(".", $match[0]);
 
-            if($number == '')
+            if($number != '')
             {
                 return 0;
             }

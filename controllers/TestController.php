@@ -22,9 +22,12 @@ class TestController extends Controller
 
         if(isset($_SESSION) && isset($_COOKIE))
         {
-            print "Score: ".$_SESSION['score']."<br/>";
-            print "Número: ".$_SESSION['number']."<br/>";
-            print "IP: ".$this->getIp();
+            return $this->render('/test/success', [
+                'title' => 'Funcionou :)',
+                'score' => $_SESSION['score'],
+                'number' => $_SESSION['number'],
+                'ip' => $this->getIp()
+            ]);
         }
     }
 

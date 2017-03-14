@@ -27,6 +27,10 @@
         <link href="/css/main.css" rel="stylesheet">
     </head>
     <body>
+        <script src="/js/jquery-3.1.1.min.js"></script>
+
         <?= $content ?>
+
+
     </body>
 </html>

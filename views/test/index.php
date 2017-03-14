@@ -77,6 +77,10 @@
                         {
                             $("#address").parent(this).addClass('has-error has-feedback');
                         }
+                        else
+                        {
+                            window.location.replace("/test/success");
+                        }
                     }
                 });
             }

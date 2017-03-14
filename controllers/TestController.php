@@ -14,7 +14,17 @@ class TestController extends Controller
         return $this->render('/test/index', []);
     }
 
-    
+    public function actionSuccess()
+    {
+        session_start();
+
+        if(isset($_SESSION) && isset($_COOKIE))
+        {
+            print "Score: ".$_SESSION['score']."<br/>";
+            print "Número: ".$_SESSION['number']."<br/>";
+            print "IP: ".$this->getIp();
+        }
+    }
 
     public function actionSend()
     {
@@ -35,10 +45,10 @@ class TestController extends Controller
             {
                 $token = bin2hex(openssl_random_pseudo_bytes(32));
 
-                $this->setCookieSession($email, $address, $token, $score);
+                $this->setCookieSession($email, $address, $number, $token, $score);
                 $this->sendEmail($email, $token);
 
-                header('Location: /test/success');
+                return 1;
             }
         }
         else
@@ -47,16 +57,19 @@ class TestController extends Controller
         }
     }
 
-    private function setCookieSession($email, $address, $token, $score)
+    private function setCookieSession($email, $address, $number, $token, $score)
     {
         session_start();
 
         setcookie('email', $email, time() + (86400 * 30), '/');
         setcookie('address', $address, time() + (86400 * 30), '/');
+        setcookie('number', $number, time() + (86400 * 30), '/');
         setcookie('token', $token, time() + (86400 * 30), '/');
+        setcookie('score', $score, time() + (86400 * 30), '/');
 
         $_SESSION['email'] = $email;
         $_SESSION['address'] = $address;
+        $_SESSION['number'] = $number;
         $_SESSION['token'] = $token;
         $_SESSION['score'] = $score;
 

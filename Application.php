@@ -13,11 +13,7 @@ class Application
             'index',
         ]
     ];
-
-    // arquivo da view que será carregado
-    // /views/NOME_DO_CONTROLLER/NOME_DA_ACTION
-    public $viewFile;
-
+    
     // controle da action
     private function route()
     {
@@ -31,14 +27,13 @@ class Application
         {
             $class = "\\mvc\\controllers\\".ucwords(strtolower($controllerRoute))."Controller";
             $controller = new $class;
-            $controller->viewFile = "../views/$controllerRoute/$actionRoute.php";
             $controller->{'action'.ucwords(strtolower($actionRoute))}($idRoute);
         }
         else
         {
             // caso a requisição não esteja em ROUTE, 404.
             header("HTTP/1.1 404 Not Found");
-            include("../views/error/404.php");
+            require(__DIR__ . "/views/error/404.php");
         }
 
     }
@@ -55,8 +50,9 @@ class Application
         {
             // chamada default
             $controller = new \mvc\controllers\TestController;
-            $controller->viewFile = "../views/test/index.php";
             $controller->actionIndex();
         }
     }
+
+
 }

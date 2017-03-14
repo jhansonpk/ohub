@@ -11,7 +11,9 @@ class TestController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('/test/index', []);
+        return $this->render('/test/index', [
+            'title' => 'Teste desenvolvedor Full Stack'
+        ]);
     }
 
     public function actionSuccess()

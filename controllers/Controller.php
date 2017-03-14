@@ -14,8 +14,7 @@ class Controller
      */
     public function render($action, $params = [])
     {
-        $content = $this->get_include_contents(__DIR__ ."/../views".$action.".php", $params);
-        require(__DIR__ . '/../views/layout/main.php');
+        $this->get_include_contents(__DIR__ ."/../views".$action.".php", $params);
     }
 
     /**
@@ -33,7 +32,8 @@ class Controller
             }
 
             include $filename;
-            return ob_get_clean();
+            $content = ob_get_clean();
+            require(__DIR__ . '/../views/layout/main.php');
         }
         return false;
     }
